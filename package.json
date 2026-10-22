@@ -1,0 +1,8 @@
+{
+  "name": "kyrark-site",
+  "private": true,
+  "description": "Kyrark static website and contact API for Vercel",
+  "scripts": {
+    "test": "node --test tests/contact.test.js"
+  }
+}

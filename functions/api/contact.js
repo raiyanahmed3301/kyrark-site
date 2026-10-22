@@ -2,9 +2,16 @@ import contact from '../../api/contact.js';
 
 // Cloudflare Pages Functions adapter for the shared contact handler.
 export async function onRequestPost({ request, env }) {
+  const contentType = request.headers.get('content-type') || '';
   let body;
   try {
-    body = await request.json();
+    if (contentType.toLowerCase().includes('application/json')) {
+      body = await request.json();
+    } else if (contentType.toLowerCase().includes('application/x-www-form-urlencoded')) {
+      body = Object.fromEntries((await request.formData()).entries());
+    } else {
+      return Response.json({ error: 'Use the website enquiry form.' }, { status: 415 });
+    }
   } catch {
     return Response.json({ error: 'Please submit a valid enquiry.' }, { status: 400 });
   }
@@ -30,5 +37,5 @@ export async function onRequestPost({ request, env }) {
   });
 
   await contact(req, res);
-  return new Response(res.payload, { status, headers: responseHeaders });
+  return new Response(res.payload ?? null, { status, headers: responseHeaders });
 }

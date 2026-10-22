@@ -15,7 +15,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<nav><div class="wrap"><a class="logo mono" href="#top">KYR<i>/</i>ARK</a><div class="links" id="links"><a href="#services">Services</a><a href="#owasp">OWASP 2025</a><a href="#approach">Approach</a><a href="#research">Research</a><a href="#team">Team</a><a href="#contact">Contact</a></div><button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="links">Menu</button><a class="btn nbtn" href="#contact">Request an engagement</a></div></nav>
+<nav><div class="wrap"><a class="logo mono" href="#top">KYR<i>/</i>ARK</a><div class="links" id="links"><a href="#services">Services</a><a href="#owasp">OWASP 2025</a><a href="#approach">Approach</a><a href="#research">Research</a><a href="#team">Team</a><a href="#contact">Contact</a></div><button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="links" aria-label="Open menu">Menu</button><a class="btn nbtn" href="#contact">Request an engagement</a></div></nav>
 
 <main id="main">
 <header class="hero" id="top"><div class="wrap">
@@ -76,8 +76,35 @@
 </div></div></section>
 
 <section id="contact"><div class="wrap contact">
-<div><div class="eyebrow mono">Contact</div><h2>Request an engagement</h2><p class="lead">Share your scope and objectives. We respond with a proposed approach and next steps. All enquiries are handled in confidence.</p></div>
-<form id="f" action="/api/contact" method="post"><div><label for="n">Name</label><input id="n" name="name" maxlength="100" autocomplete="name" required></div><div><label for="e">Work email</label><input id="e" name="email" type="email" maxlength="150" autocomplete="email" required></div><div><label for="s">Service</label><select id="s" name="service"><option>Red Team Operations</option><option>Web Application Penetration Testing</option><option>Threat Intelligence (early access)</option><option>Other</option></select></div><div><label for="m">Scope and objectives</label><textarea id="m" name="message" rows="4" maxlength="2000" required></textarea></div><div class="hp" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div><button class="btn" type="submit">Send enquiry</button><p class="msg" id="msg" role="status" aria-live="polite"></p><p class="form-note">Your enquiry will be sent securely to Kyrark by email.</p></form>
+<div>
+<div class="eyebrow mono">Contact</div>
+<h2>Request an engagement</h2>
+<p class="lead">Share your organisation, scope and objectives. We reply with a proposed approach and next steps. Enquiries are handled in confidence and do not authorise testing.</p>
+<ul class="contact-points">
+<li>Red team, web application testing, or threat intelligence early access</li>
+<li>Written scoping, NDA and rules of engagement before any work starts</li>
+<li>We use your work email only to respond to this request</li>
+</ul>
+</div>
+<form id="f" action="/api/contact" method="post">
+<div class="fields">
+<div><label for="n">Name</label><input id="n" name="name" maxlength="100" autocomplete="name" required></div>
+<div><label for="o">Organisation</label><input id="o" name="organization" maxlength="120" autocomplete="organization"></div>
+</div>
+<div><label for="e">Work email</label><input id="e" name="email" type="email" maxlength="150" autocomplete="email" inputmode="email" required></div>
+<div><label for="s">Service</label><select id="s" name="service" required>
+<option value="Red Team Operations">Red Team Operations</option>
+<option value="Web Application Penetration Testing">Web Application Penetration Testing</option>
+<option value="Threat Intelligence (early access)">Threat Intelligence (early access)</option>
+<option value="Other">Other</option>
+</select></div>
+<div><label for="m">Scope and objectives</label><textarea id="m" name="message" rows="5" maxlength="2000" required placeholder="Systems in scope, timing, and what you want tested."></textarea></div>
+<div class="hp" aria-hidden="true"><label for="fax">Company website</label><input id="fax" name="fax" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
+<label class="consent"><input id="c" name="consent" type="checkbox" value="yes" required> I agree to be contacted about this enquiry. Do not include passwords or access credentials.</label>
+<button class="btn" type="submit">Send engagement request</button>
+<p class="msg" id="msg" role="status" aria-live="polite"></p>
+<p class="form-note">Submitted from this page only, delivered by email to Kyrark. See <a href="/privacy">Privacy</a>.</p>
+</form>
 </div></section>
 
 </main>
@@ -85,8 +112,8 @@
 <div class="fg"><div><a class="logo mono" href="#top">KYR<i>/</i>ARK</a><p>Offensive security and cyber resilience for organisations that need to know how they would really be attacked.</p></div>
 <div><h6>Services</h6><a href="#services">Red Team Operations</a><a href="#services">Web App Pentesting</a><a href="#owasp">OWASP Top 10:2025</a><a href="#services">Threat Intelligence</a></div>
 <div><h6>Company</h6><a href="#approach">Approach</a><a href="#research">Research</a><a href="#team">Team</a></div>
-<div><h6>Connect</h6><a href="https://www.linkedin.com/company/kyrark/" rel="noopener noreferrer" target="_blank">LinkedIn</a><a href="#contact">Contact</a></div></div>
-<div class="copy"><span>© 2026 Kyrark. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>
+<div><h6>Connect</h6><a href="https://www.linkedin.com/company/kyrark/" rel="noopener noreferrer" target="_blank">LinkedIn</a><a href="#contact">Request an engagement</a></div></div>
+<div class="copy"><span>© 2026 Kyrark. All rights reserved.</span><span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span></div>
 </div></footer>
 
 <script src="app.js" defer></script>

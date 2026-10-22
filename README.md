@@ -4,7 +4,7 @@ This is a static website with a contact endpoint for Vercel and Cloudflare Pages
 
 ## Contact form
 
-The contact form posts to `/api/contact`, which sends the enquiry through Resend to `cursedblademaster@protonmail.com`. Configure these server-side environment variables in your host (Production and Preview as needed):
+The engagement form posts to `/api/contact`, which sends the enquiry through Resend to `cursedblademaster@protonmail.com`. Configure these server-side environment variables in your host (Production and Preview as needed):
 
 - `RESEND_API_KEY`: a Resend sending API key. Keep it private; never use a `NEXT_PUBLIC_` variable.
 - `EMAIL_FROM`: a sender address on a domain verified in Resend, for example `Kyrark <enquiries@your-verified-domain.example>`.

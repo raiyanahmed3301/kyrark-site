@@ -15,7 +15,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<nav><div class="wrap"><a class="logo mono" href="#top">KYR<i>/</i>ARK</a><div class="links" id="links"><a href="#services">Services</a><a href="#approach">Approach</a><a href="#research">Research</a><a href="#team">Team</a><a href="#contact">Contact</a></div><button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="links">Menu</button><a class="btn nbtn" href="#contact">Request an engagement</a></div></nav>
+<nav><div class="wrap"><a class="logo mono" href="#top">KYR<i>/</i>ARK</a><div class="links" id="links"><a href="#services">Services</a><a href="#owasp">OWASP 2025</a><a href="#approach">Approach</a><a href="#research">Research</a><a href="#team">Team</a><a href="#contact">Contact</a></div><button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="links">Menu</button><a class="btn nbtn" href="#contact">Request an engagement</a></div></nav>
 
 <main id="main">
 <header class="hero" id="top"><div class="wrap">
@@ -30,9 +30,26 @@
 <div class="head"><div class="eyebrow mono">Services</div><h2>Security assessments mapped to real-world attack paths</h2></div>
 <div class="cols">
 <div class="col"><div class="n mono">01</div><h3>Red Team Operations</h3><p>Objective-based adversary emulation that tests your people, processes and technology against a realistic threat actor.</p><ul><li>Threat-informed scenarios aligned to MITRE ATT&amp;CK</li><li>Social engineering, external and internal compromise</li><li>Detection and response gap analysis</li></ul><span class="status a mono">AVAILABLE</span></div>
-<div class="col"><div class="n mono">02</div><h3>Web Application Penetration Testing</h3><p>In-depth manual assessment of web applications and APIs, focused on flaws automated tools miss.</p><ul><li>OWASP Top 10 and API Security Top 10</li><li>Authentication, access control and business logic</li><li>Remediation guidance and free retest</li></ul><span class="status a mono">AVAILABLE</span></div>
+<div class="col"><div class="n mono">02</div><h3>Web Application Penetration Testing</h3><p>In-depth manual assessment of web applications and APIs, focused on flaws automated tools miss.</p><ul><li>Coverage mapped to OWASP Top 10:2025 and relevant API risks</li><li>Authentication, access control and business logic</li><li>Remediation guidance and free retest</li></ul><span class="status a mono">AVAILABLE</span></div>
 <div class="col"><div class="n mono">03</div><h3>Threat Intelligence Platform</h3><p>A tailored intelligence capability that turns noisy feeds into prioritised, relevant signals for your environment.</p><ul><li>External exposure and credential leak monitoring</li><li>Adversary and vulnerability relevance scoring</li><li>Integration with existing security tooling</li></ul><span class="status mono">UNDER DEVELOPMENT · EARLY ACCESS</span></div>
 </div></div></section>
+
+<section id="owasp" class="alt"><div class="wrap">
+<div class="head"><div class="eyebrow mono">Application security · OWASP Top 10:2025</div><h2>Test the risks in your application’s real attack paths</h2><p class="lead">We use the current OWASP Top 10 as an awareness and scoping guide, then tailor test coverage to your application, architecture and written scope.</p></div>
+<div class="owasp-grid">
+<details><summary><span class="id mono">A01:2025</span><h3>Broken Access Control</h3></summary><p>Review role and object permissions, tenant boundaries, direct API access and server-side request paths where applicable.</p></details>
+<details><summary><span class="id mono">A02:2025</span><h3>Security Misconfiguration</h3></summary><p>Check security-relevant defaults, exposed services, access settings, security headers and overly detailed errors in scope.</p></details>
+<details><summary><span class="id mono">A03:2025</span><h3>Software Supply Chain Failures</h3></summary><p>When source and build systems are in scope, review dependency exposure, provenance, update paths and CI/CD controls.</p></details>
+<details><summary><span class="id mono">A04:2025</span><h3>Cryptographic Failures</h3></summary><p>Examine protection of sensitive data in transit and at rest, and the use and handling of keys, secrets and cryptographic operations.</p></details>
+<details><summary><span class="id mono">A05:2025</span><h3>Injection</h3></summary><p>Test untrusted input reaching interpreters and browsers, including query, command, template and cross-site scripting paths.</p></details>
+<details><summary><span class="id mono">A06:2025</span><h3>Insecure Design</h3></summary><p>Assess trust boundaries, abuse cases, business rules and security controls that should be built into the design.</p></details>
+<details><summary><span class="id mono">A07:2025</span><h3>Authentication Failures</h3></summary><p>Review sign-in, account recovery, multi-factor flows, session lifecycle and protections against credential attacks.</p></details>
+<details><summary><span class="id mono">A08:2025</span><h3>Software or Data Integrity Failures</h3></summary><p>Check whether code, updates, serialized data and other trusted artifacts are validated before use.</p></details>
+<details><summary><span class="id mono">A09:2025</span><h3>Security Logging and Alerting Failures</h3></summary><p>Review whether relevant security events are recorded safely, monitored and connected to actionable alerts when those controls are in scope.</p></details>
+<details><summary><span class="id mono">A10:2025</span><h3>Mishandling of Exceptional Conditions</h3></summary><p>Test error paths, timeouts, invalid states and resource failures for unsafe fallback behavior or incomplete operations.</p></details>
+</div>
+<p class="owasp-note">Category names and ordering are from the OWASP Top 10:2025 by the OWASP Top 10 Team; the coverage examples above are Kyrark’s adaptation for assessment scoping under <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>. Coverage depends on the agreed scope and available access; this mapping is a guide, not a certification or a promise that every category applies to every engagement. <a href="https://top10.owasp.org/2025/en/" target="_blank" rel="noopener noreferrer">Read the official OWASP Top 10:2025</a>.</p>
+</div></section>
 
 <section id="approach" class="alt"><div class="wrap">
 <div class="head"><div class="eyebrow mono">Approach</div><h2>A structured, transparent engagement lifecycle</h2></div>
@@ -66,7 +83,7 @@
 </main>
 <footer><div class="wrap">
 <div class="fg"><div><a class="logo mono" href="#top">KYR<i>/</i>ARK</a><p>Offensive security and cyber resilience for organisations that need to know how they would really be attacked.</p></div>
-<div><h6>Services</h6><a href="#services">Red Team Operations</a><a href="#services">Web App Pentesting</a><a href="#services">Threat Intelligence</a></div>
+<div><h6>Services</h6><a href="#services">Red Team Operations</a><a href="#services">Web App Pentesting</a><a href="#owasp">OWASP Top 10:2025</a><a href="#services">Threat Intelligence</a></div>
 <div><h6>Company</h6><a href="#approach">Approach</a><a href="#research">Research</a><a href="#team">Team</a></div>
 <div><h6>Connect</h6><a href="https://www.linkedin.com/company/kyrark/" rel="noopener noreferrer" target="_blank">LinkedIn</a><a href="#contact">Contact</a></div></div>
 <div class="copy"><span>© 2026 Kyrark. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>

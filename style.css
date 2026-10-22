@@ -76,5 +76,13 @@ select:focus-visible,textarea:focus-visible{outline:2px solid var(--ac);outline-
 .form-note{margin:0;color:var(--mut);font-size:.82rem}
 .msg.error{color:var(--ac-h)}
 button:disabled{opacity:.65;cursor:wait}
+.owasp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.owasp-grid details{border:1px solid var(--line);background:var(--bg);padding:0 18px}
+.owasp-grid summary{padding:20px 0;grid-template-columns:76px 1fr auto}
+.owasp-grid summary h3{font-size:1rem}
+.owasp-grid p{margin:0 0 20px 88px;color:var(--mut);font-size:.9rem}
+.owasp-note{margin:24px 0 0;color:var(--mut);font-size:.84rem;max-width:900px}
+.owasp-note a{color:var(--tx)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
 @media(max-width:820px){.menu{display:block}.nbtn{display:none}.links{display:none;position:absolute;top:calc(68px + env(safe-area-inset-top,0px));left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 24px 20px}.links.open{display:flex;flex-direction:column}.links a{margin:10px 0}}
+@media(max-width:820px){.owasp-grid summary{grid-template-columns:1fr auto}.owasp-grid summary .id{display:none}.owasp-grid p{margin-left:0}}

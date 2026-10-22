@@ -104,8 +104,8 @@ module.exports = async function contact(req, res) {
     });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.EMAIL_FROM;
+  const apiKey = req.env?.RESEND_API_KEY || process.env.RESEND_API_KEY;
+  const from = req.env?.EMAIL_FROM || process.env.EMAIL_FROM;
   if (!apiKey || !from) {
     return sendJson(res, 503, { error: 'Enquiry delivery is not configured yet. Please try again later.' });
   }

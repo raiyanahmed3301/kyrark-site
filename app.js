@@ -18,16 +18,25 @@ a.append(el('h5',0,'Literature review'),el('p',0,w[3]));
 w[4].forEach(i=>u.append(el('li',0,i)));m.append(el('h5',0,'Mitigations'),u);
 b.append(a,m);d.append(s,b);$('wr').append(d)});
 const f=$('f'),msg=$('msg'),submit=f.querySelector('button[type="submit"]');
+const setFormMessage=(text,isError=false)=>{msg.textContent=text;msg.classList.toggle('error',isError)};
 f.addEventListener('submit',async e=>{e.preventDefault();
 if(!f.reportValidity())return;
 if(f.elements.website.value)return;
-msg.textContent='Sending your enquiry…';submit.disabled=true;
+setFormMessage('Sending your enquiry…');submit.disabled=true;
 try{
 const data=Object.fromEntries(new FormData(f));
 const response=await fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
-const result=await response.json().catch(()=>({}));
-if(!response.ok)throw new Error(result.error||'We could not send your enquiry. Please try again.');
-f.reset();msg.textContent='Your enquiry was sent. We’ll be in touch soon.';
-}catch(error){msg.textContent=error.message||'We could not send your enquiry. Please email cursedblademaster@protonmail.com.';}
+const contentType=response.headers.get('content-type')||'';
+const result=contentType.includes('application/json')?await response.json().catch(()=>({})):{};
+if(!response.ok){
+const fallback=response.status===503?'Email delivery is not configured. Add RESEND_API_KEY and EMAIL_FROM in Vercel, then redeploy. No email was sent.':response.status===502?'The email provider could not deliver this message. Check the sender domain and Resend settings.':response.status===404?'The contact endpoint is missing from this deployment. Redeploy the latest site files.':response.status===429?'Too many enquiries were submitted. Please wait a few minutes and try again.':'The contact service returned an unexpected response. Please try again later.';
+throw new Error(result.error||fallback);
+}
+if(!result.ok)throw new Error('The contact service did not confirm delivery. Please try again later.');
+f.reset();setFormMessage('Your enquiry was sent. We’ll be in touch soon.');
+}catch(error){
+const message=error instanceof TypeError?'Could not reach the contact service. Check your connection and try again.':error.message;
+setFormMessage(message||'We could not send your enquiry. Please try again later.',true);
+}
 finally{submit.disabled=false}
 });
